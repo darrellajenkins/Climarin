@@ -12,7 +12,7 @@ class Monster:
 
     def move(self):
         p = random.choice(['A', 'B', 'C', 'M', 'X', 'Y', 'Z'])
-        return f"{self.name} lands on '^' {p} '^'"
+        return f"{self.name} lands on '^' \033[1m{p}\033[0m '^'"
 
 class Warrior:
     def __init__(self, name):
@@ -27,7 +27,7 @@ class Warrior:
 
     def move(self):
         p = random.choice(['A', 'B', 'C', 'M', 'X', 'Y', 'Z'])
-        return f"{self.name} lands on '^' {p} '^'"
+        return f"{self.name} lands on '^' \033[1m{p}\033[0m '^'"
 
 class Sorcerer:
     def __init__(self, name):
@@ -44,7 +44,7 @@ class Sorcerer:
 
     def move(self):
         p = random.choice(['A', 'B', 'C', 'M', 'X', 'Y', 'Z'])
-        return f"{self.name} lands on '^' {p} '^'"
+        return f"{self.name} lands on '^' \033[1m{p}\033[0m '^'"
 
 class Sage:
     def __init__(self, name):
@@ -58,7 +58,7 @@ class Sage:
 
     def move(self):
         p = random.choice(['A', 'B', 'C', 'M', 'X', 'Y', 'Z'])
-        return f"{self.name} lands on '^' {p} '^'"
+        return f"{self.name} lands on '^' \033[1m{p}\033[0m '^'"
 
 
 

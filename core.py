@@ -5,7 +5,7 @@ import special_abilities as spc_abs
 field = ['A', 'B', 'C', 'M', 'X', 'Y', 'Z']
 
 def player_1():
-    p_1 = input("\033[1mPlayer 1\033[0m, please select your character: \n[W]arrior\n[M]onster\n[S]orcerer\nSa[g]e\n\t")
+    p_1 = input("\033[1mPlayer 1\033[0m, please select your character: \n[W]arrior\n[M]onster\n[S]orcerer\nSa[g]e\n")
 
     if p_1.lower() == 'w':
         name = input("Warrior, please enter your name: ")
@@ -25,7 +25,7 @@ def player_1():
     return name, charac
 
 def player_2():
-    p_2 = input("\033[1mPlayer 2\033[0m, please select your character: \n[W]arrior\n[M]onster\n[S]orcerer\nSa[g]e")
+    p_2 = input("\033[1mPlayer 2\033[0m, please select your character: \n[W]arrior\n[M]onster\n[S]orcerer\nSa[g]e\n")
 
     if p_2.lower() == 'w':
         name = input("Warrior, please enter your name: ")
