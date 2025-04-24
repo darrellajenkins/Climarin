@@ -1,5 +1,4 @@
 import random
-from json import tool
 
 
 class Monster:
@@ -12,20 +11,23 @@ class Monster:
         self.power = 3
 
     def move(self):
-        return random.choice(['A', 'B', 'C', 'D', 'X', 'Y', 'Z'])
+        p = random.choice(['A', 'B', 'C', 'M', 'X', 'Y', 'Z'])
+        return f"{self.name} lands on '^' {p} '^'"
 
 class Warrior:
     def __init__(self, name):
         """ """
         self.name = name
-        self.mouth = "SHOUT! !!!"
+        self.mouth = "YELL! !!!"
         self.strike = "BAM! oooO"
+        self.magic = "~~~~~~~~"
         self.speak = ""
         self.power = 2.5
         self.tool = "Sword"
 
     def move(self):
-        return random.choice(['A', 'B', 'C', 'D', 'X', 'Y', 'Z'])
+        p = random.choice(['A', 'B', 'C', 'M', 'X', 'Y', 'Z'])
+        return f"{self.name} lands on '^' {p} '^'"
 
 class Sorcerer:
     def __init__(self, name):
@@ -37,10 +39,12 @@ class Sorcerer:
         self.speak = ""
         self.power = 3
         self.tool = ["Staff", "Wand"]
-        self.traits = {'Name':self.name, 'Mouth':self.mouth, 'Strike':self.strike, 'Cast':self.cast, 'Speak':self.speak, 'Power':self.power, 'Tool':self.tool}
+        self.traits = {'Name':self.name, 'Mouth':self.mouth, 'Strike':self.strike, 'Class': self.__class__.__name__,
+                       'Cast':self.cast, 'Speak':self.speak, 'Power':self.power, 'Tool':self.tool}
 
     def move(self):
-        return random.choice(['A', 'B', 'C', 'D', 'X', 'Y', 'Z'])
+        p = random.choice(['A', 'B', 'C', 'M', 'X', 'Y', 'Z'])
+        return f"{self.name} lands on '^' {p} '^'"
 
 class Sage:
     def __init__(self, name):
@@ -53,10 +57,8 @@ class Sage:
         self.tool = "Book"
 
     def move(self):
-        return random.choice(['A', 'B', 'C', 'D', 'X', 'Y', 'Z'])
+        p = random.choice(['A', 'B', 'C', 'M', 'X', 'Y', 'Z'])
+        return f"{self.name} lands on '^' {p} '^'"
 
-class Enhancers:
-    def __init__(self):
-        """ """
-        self.demi_god = 2
-        self.god = 4
+
+
