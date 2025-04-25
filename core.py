@@ -1,6 +1,6 @@
 from characters import Monster, Warrior, Sorcerer, Sage
 import special_abilities as spc_abs
-
+import time
 
 field = ['A', 'B', 'C', 'M', 'X', 'Y', 'Z']
 
@@ -66,6 +66,8 @@ while p:
         for name, charac in opponents:
             input(f"{name} begins...press enter")
             print(charac.move())
+            if isinstance(charac, Sorcerer):
+                charac.magic()
     elif play.lower() == 's':
         print("Score is tied 1 to 1")  # TODO: create function to calculate score.
         break
