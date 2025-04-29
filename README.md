@@ -1,68 +1,14 @@
-# Climarin Tests
+# About
 
-This repository contains tests for the Climarin game, focusing on the core functionality in `core.py`.
+Climarin, like its corresponding Python code, appeared at a whim.  The name describes a world of fantasy and at the same time refers to the currency of this 
+once forgotten realm.  It's designed for two players and is similar to a roguelike game.
+Players choose one of four classes:  Warrior, Monster, Sorcerer, or Sage. 
 
-## Test Structure
+## Code
 
-The tests are organized as follows:
+Written in Python as a part of a daily exercise to practice using class objects and to remember that coding should always be fun.
 
-- `test_core.py`: Contains unit tests for the functions and game flow in `core.py`
-- `run_tests.py`: A script to run the tests and log the results
+## How to Run the Program
 
-## Logging
-
-The tests use the Python logging module to record test execution and results. Logs are written to:
-
-- `test_core.log`: Contains detailed logs from the test execution
-- `test_runner.log`: Contains logs from the test runner
-
-The logging is configured to:
-- Write logs to both files and the console
-- Include timestamps, logger names, and log levels
-- Use DEBUG level for detailed information and INFO level for general execution flow
-
-## Running the Tests
-
-To run the tests, execute the `run_tests.py` script:
-
-```
-python run_tests.py
-```
-
-This will:
-1. Run all the tests in `test_core.py`
-2. Display the results in the console
-3. Write detailed logs to the log files
-4. Exit with status code 0 if all tests pass, or 1 if any tests fail
-
-## Test Coverage
-
-The tests cover the following aspects of `core.py`:
-
-1. Character selection functions:
-   - `player_1()`: Tests for all character types (Warrior, Monster, Sorcerer, Sage)
-   - `player_2()`: Tests for all character types (Warrior, Monster, Sorcerer, Sage)
-   - Invalid input handling for both functions
-
-2. Game flow:
-   - Play option: Tests character moves and special abilities
-   - Stop option: Tests score display
-   - Quit option: Tests game termination
-
-3. Variables:
-   - `field` variable: Tests the content and length
-
-## Mocking
-
-The tests use `unittest.mock` to:
-- Mock user input to simulate different user choices
-- Mock character objects to avoid dependencies on the actual character classes
-- Wrap functions to test recursive calls
-- Capture stdout to test printed output
-
-## Adding More Tests
-
-To add more tests:
-1. Add new test methods to the `TestCore` class in `test_core.py`
-2. Follow the existing pattern of using appropriate logging and mocking
-3. Run the tests to verify they pass
+For now it works best as an emulated run in your Python console. Eventually I will reformat the code to make use of the Python turtle module, and then later 
+to Pygame.
