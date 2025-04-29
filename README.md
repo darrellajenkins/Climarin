@@ -11,4 +11,4 @@ Written in Python as a part of a daily exercise to practice using class objects 
 ## How to Run the Program
 
 For now it works best as an emulated run in your Python console. Eventually I will reformat the code to make use of the Python turtle module, and then later 
-to Pygame.
+make use of Pygame.
