@@ -2,7 +2,6 @@ from characters import Monster, Warrior, Sorcerer, Sage
 import special_abilities as spc_abs
 import time
 
-field = ['A', 'B', 'C', 'M', 'X', 'Y', 'Z']
 
 def player_1():
     p_1 = input("\033[1mPlayer 1\033[0m, please select your character: \n[W]arrior\n[M]onster\n[S]orcerer\nSa[g]e\n")
@@ -44,6 +43,11 @@ def player_2():
         player_2()
     return name, charac
 
+def next_to(first, second):
+    """Determine if the first and second players landed next to each other"""
+    field = ['A', 'B', 'C', 'M', 'X', 'Y', 'Z']
+    return field.index(first) == field.index(second) - 1 or field.index(first) == field.index(second) + 1
+
 player_1 = player_1()
 p1_name = player_1[0]
 p1_charac = player_1[1]
@@ -63,11 +67,38 @@ while p:
         print("Thanks for playing!")
         break
     elif play.lower() == 'p':
-        for name, charac in opponents:
-            input(f"{name} begins...press enter")
-            print(charac.move())
-            if isinstance(charac, Sorcerer):
-                charac.magic()
+        input(f"{p1_name} begins...press enter")
+        p1_move = p1_charac.move()
+        print(p1_show_move := p1_move[0])
+        p1_lands = p1_move[1]
+        if isinstance(p1_charac, Sorcerer):
+            print(p1_charac.strike)
+            p1_charac.magic()
+        else:
+            print(p1_charac.strike)
+
+        input(f"\n{p2_name} begins...press enter")
+        p2_move = p2_charac.move()
+        print(p2_show_move := p2_move[0])
+        p2_lands = p2_move[1]
+        if isinstance(p2_charac, Sorcerer):
+            print(p2_charac.strike)
+            p2_charac.magic()
+        else:
+            print(p2_charac.strike)
+        if next_to(p1_lands, p2_lands):
+            print("Both players landed next to each other.")
+        else:
+            print("Players did not land next to each other.")
+
+        # for name, charac in opponents:
+        #     input(f"{name} begins...press enter")
+        #     print(charac.move())
+        #     if isinstance(charac, Sorcerer):
+        #         print(charac.strike)
+        #         charac.magic()
+        #     else:
+        #         print(charac.strike)
     elif play.lower() == 's':
         print("Score is tied 1 to 1")  # TODO: create function to calculate score.
         break

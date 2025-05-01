@@ -13,7 +13,10 @@ class Monster:
 
     def move(self):
         p = random.choice(['A', 'B', 'C', 'M', 'X', 'Y', 'Z'])
-        return f"{self.name} lands on '^' \033[1m{p}\033[0m '^'"
+        return f"{self.name} lands on '^' \033[1m{p}\033[0m '^'", p
+
+    def strike(self):
+        pass
 
 class Warrior:
     def __init__(self, name):
@@ -28,7 +31,7 @@ class Warrior:
 
     def move(self):
         p = random.choice(['A', 'B', 'C', 'M', 'X', 'Y', 'Z'])
-        return f"{self.name} lands on '^' \033[1m{p}\033[0m '^'"
+        return f"{self.name} lands on '^' \033[1m{p}\033[0m '^'", p
 
 class Sorcerer:
     def __init__(self, name):
@@ -45,7 +48,7 @@ class Sorcerer:
 
     def move(self):
         p = random.choice(['A', 'B', 'C', 'M', 'X', 'Y', 'Z'])
-        return f"{self.name} lands on '^' \033[1m{p}\033[0m '^'"
+        return f"{self.name} lands on '^' \033[1m{p}\033[0m '^'", p
 
     def magic(self):
         for i in range(3):
@@ -70,7 +73,4 @@ class Sage:
 
     def move(self):
         p = random.choice(['A', 'B', 'C', 'M', 'X', 'Y', 'Z'])
-        return f"{self.name} lands on '^' \033[1m{p}\033[0m '^'"
-
-
-
+        return f"{self.name} lands on '^' \033[1m{p}\033[0m '^'", p

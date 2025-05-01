@@ -1,10 +1,11 @@
 from characters import Monster, Warrior, Sorcerer, Sage
 import special_abilities as spc_abs
-
+import time
 import sympy
 from sympy.abc import pi
 from sympy import pi, pretty
 import math
+import random
 
 
 # How to print the pi symbol using standard function chr:
@@ -150,4 +151,20 @@ for _ in range(5):
     for s in [chr(164), chr(167), chr(931), chr(1046), chr(8982)]:
         print(f"\033[34mMagic: {s}\033[39m", end='\r')
         time.sleep(0.1)
+
+
+p = ['A', 'B', 'C', 'M', 'X', 'Y', 'Z']
+A = p[0]
+B = p[1]
+C = p[2]
+M = p[3]
+X = p[4]
+Y = p[5]
+Z = p[6]
+print("C is next to M:", p.index(C) == p.index(M) - 1)
+print("C is next to X:", p.index(C) == p.index(X) - 1)
+print("C is next to B:", p.index(C) == p.index(B) - 1 or p.index(C) == p.index(B) + 1)
+t = random.choice(p)
+u = random.choice(p)
+print(f"{t} is next to {u}: {p.index(t) == p.index(u) - 1 or p.index(t) == p.index(u) + 1}")
 
