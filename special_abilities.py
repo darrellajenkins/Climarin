@@ -2,6 +2,7 @@
 class Enhancers:
     def __init__(self):
         """ """
+        self.falcon = 1
         self.demi_god = 2
         self.god = 4
         self.fly = 2

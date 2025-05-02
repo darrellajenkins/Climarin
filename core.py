@@ -89,7 +89,8 @@ while p:
             print("Both players landed next to each other.")
             print(p1_charac.strike())  # Redundant, can be removed later.
             print(p2_charac.strike())  # Redundant, can be removed later.
-            if p1_charac.power > p2_charac.power:  # Make this a separate function later.
+            if p1_charac.power > p2_charac.power:  # Make this a separate function later. One will always be larger than the other unless you write in option
+                # to use the enhancers.
                 p1_score += p1_charac.power - p2_charac.power
             elif p1_charac.power < p2_charac.power:
                 p2_score += p2_charac.power - p1_charac.power
