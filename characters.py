@@ -15,8 +15,8 @@ class Monster:
         p = random.choice(['A', 'B', 'C', 'M', 'X', 'Y', 'Z'])
         return f"{self.name} lands on '^' \033[1m{p}\033[0m '^'", p
 
-    def strike(self):
-        pass
+    def power(self):
+        return f"{self.name} strikes with Power {self.power}!"
 
 class Warrior:
     def __init__(self, name):
@@ -32,6 +32,9 @@ class Warrior:
     def move(self):
         p = random.choice(['A', 'B', 'C', 'M', 'X', 'Y', 'Z'])
         return f"{self.name} lands on '^' \033[1m{p}\033[0m '^'", p
+
+    def power(self):
+        return f"{self.name} strikes with Power {self.power}!"
 
 class Sorcerer:
     def __init__(self, name):
@@ -59,7 +62,9 @@ class Sorcerer:
             for s in [chr(164), chr(167), chr(931), chr(1046), chr(8982)]:
                 print(f"\033[34mMagic: {s}\033[39m", end='\r')
                 time.sleep(0.1)
-        return f"{self.name} casts {self.cast} Power 3!"
+
+    def power(self):
+        return f"{self.name} casts {self.cast} at Power {self.power}!"
 
 class Sage:
     def __init__(self, name):
@@ -74,3 +79,6 @@ class Sage:
     def move(self):
         p = random.choice(['A', 'B', 'C', 'M', 'X', 'Y', 'Z'])
         return f"{self.name} lands on '^' \033[1m{p}\033[0m '^'", p
+
+    def power(self):
+        return f"{self.name} strikes with Power {self.power}!"

@@ -56,9 +56,6 @@ player_2 = player_2()
 p2_name = player_2[0]
 p2_charac = player_2[1]
 
-
-opponents = [(p1_name, p1_charac), (p2_name, p2_charac)]
-
 p = True
 while p:
     play = input("[P]lay, [S]top, or [Q]uit ")
@@ -91,14 +88,7 @@ while p:
         else:
             print("Players did not land next to each other.")
 
-        # for name, charac in opponents:
-        #     input(f"{name} begins...press enter")
-        #     print(charac.move())
-        #     if isinstance(charac, Sorcerer):
-        #         print(charac.strike)
-        #         charac.magic()
-        #     else:
-        #         print(charac.strike)
+
     elif play.lower() == 's':
         print("Score is tied 1 to 1")  # TODO: create function to calculate score.
         break
