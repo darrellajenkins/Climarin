@@ -8,7 +8,7 @@ class Enhancers:
 
     def escape(self, name):
         esc = "ZARIN"
-        return f"{name} has escaped to the realm of {esc} and is cannot be attacked or damaged.", esc
+        return f"{name} has escaped to the realm of {esc} and cannot be attacked or damaged.", esc
 
     def reflect(self, attacker, power, defender):
         """Takes argument of power level used in an attack from the attacker and reflects it back + 0.50."""
