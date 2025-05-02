@@ -51,10 +51,12 @@ def next_to(first, second):
 player_1 = player_1()
 p1_name = player_1[0]
 p1_charac = player_1[1]
+p1_score = 0
 
 player_2 = player_2()
 p2_name = player_2[0]
 p2_charac = player_2[1]
+p2_score = 0
 
 p = True
 while p:
@@ -69,30 +71,37 @@ while p:
         print(p1_show_move := p1_move[0])
         p1_lands = p1_move[1]
         if isinstance(p1_charac, Sorcerer):
-            print(p1_charac.strike)
+            print(p1_charac.strike())
             p1_charac.magic()
         else:
-            print(p1_charac.strike)
+            print(p1_charac.strike())
 
         input(f"\n{p2_name} begins...press enter")
         p2_move = p2_charac.move()
         print(p2_show_move := p2_move[0])
         p2_lands = p2_move[1]
         if isinstance(p2_charac, Sorcerer):
-            print(p2_charac.strike)
+            print(p2_charac.strike())
             p2_charac.magic()
         else:
-            print(p2_charac.strike)
+            print(p2_charac.strike())
         if next_to(p1_lands, p2_lands):
             print("Both players landed next to each other.")
+            print(p1_charac.strike())  # Redundant, can be removed later.
+            print(p2_charac.strike())  # Redundant, can be removed later.
+            if p1_charac.power > p2_charac.power:  # Make this a separate function later.
+                p1_score += p1_charac.power - p2_charac.power
+            elif p1_charac.power < p2_charac.power:
+                p2_score += p2_charac.power - p1_charac.power
+        elif p1_lands == p2_lands:
+            print("Players landed in the same region. A special battle begins...")
+            pass
         else:
             print("Players did not land next to each other.")
 
-
     elif play.lower() == 's':
-        print("Score is tied 1 to 1")  # TODO: create function to calculate score.
+        print(f"Score:  Player 1 = {p1_score} vs Player 2 = {p2_score}")
         break
-
 
 # TODO: create function to save score.
 # TODO: modify code to read saved game and continue from there.
