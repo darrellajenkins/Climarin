@@ -45,18 +45,16 @@ def player_2():
 
 def next_to(first, second):
     """Determine if the first and second players landed next to each other"""
-    field = ['A', 'B', 'C', 'M', 'X', 'Y', 'Z']
-    return field.index(first) == field.index(second) - 1 or field.index(first) == field.index(second) + 1
+    return field.index(first) == field.index(second) - 1 or field.index(first) == field.index(second) + 1 or field.index(first) == field.index(second) - len(
+        field) + 1 or field.index(first) == field.index(second) + len(field) - 1
 
 player_1 = player_1()
 p1_name = player_1[0]
 p1_charac = player_1[1]
 
-
 player_2 = player_2()
 p2_name = player_2[0]
 p2_charac = player_2[1]
-
 
 p = True
 
@@ -75,6 +73,7 @@ while p:
         p = False
         print("Thanks for playing!")
         break
+
     elif play.lower() == 'p':
         input(f"{p1_name} begins...press enter")
         p1_move = p1_charac.move()
@@ -95,6 +94,7 @@ while p:
             p2_charac.magic()
         else:
             print(p2_charac.strike())
+
         if next_to(p1_lands, p2_lands):
             print("Both players landed next to each other.")
             p1_score, p2_score = basic_score()
