@@ -1,5 +1,5 @@
 from characters import Monster, Warrior, Sorcerer, Sage
-import special_abilities as spc_abs
+import special_abilities as special
 import time
 
 
