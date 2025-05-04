@@ -45,6 +45,7 @@ def player_2():
 
 def next_to(first, second):
     """Determine if the first and second players landed next to each other"""
+    field = ['A', 'B', 'C', 'M', 'X', 'Y', 'Z']
     return field.index(first) == field.index(second) - 1 or field.index(first) == field.index(second) + 1 or field.index(first) == field.index(second) - len(
         field) + 1 or field.index(first) == field.index(second) + len(field) - 1
 
@@ -68,7 +69,7 @@ def basic_score():
     return p1_score, p2_score
 
 while p:
-    play = input("[P]lay, [S]top, or [Q]uit ")
+    play = input("[P]lay, [S]how Score, or [Q]uit ")
     if play.lower() == 'q':
         p = False
         print("Thanks for playing!")
@@ -106,7 +107,7 @@ while p:
 
     elif play.lower() == 's':
         print(f"Score:  Player 1 = {p1_score} vs Player 2 = {p2_score}")
-        break
+
 
 # TODO: create function to save score.
 # TODO: modify code to read saved game and continue from there.
