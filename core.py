@@ -50,20 +50,6 @@ def next_to(first, second):
     return field.index(first) == field.index(second) - 1 or field.index(first) == field.index(second) + 1 or field.index(first) == field.index(second) - len(
         field) + 1 or field.index(first) == field.index(second) + len(field) - 1
 
-player_1 = player_1()
-p1_name = player_1[0]
-p1_charac = player_1[1]
-p1_score = 0
-curr_p1_sc = 0
-
-player_2 = player_2()
-p2_name = player_2[0]
-p2_charac = player_2[1]
-p2_score = 0
-curr_p2_sc = 0
-
-p = True
-
 def basic_score(curr_p1_sc=0, curr_p2_sc=0):
     p1_score = curr_p1_sc
     p2_score = curr_p2_sc
@@ -83,6 +69,39 @@ def battle_score(curr_p1_sc=0, curr_p2_sc=0):
         p2_score += (p2_charac.battle - p1_charac.battle)
         p1_score += p1_charac.battle
     return p1_score, p2_score
+
+def battle_moves(p1_name, p1_charac, p2_name, p2_charac):
+    print("Players landed in the same region. A special battle begins...")
+    for _ in range(3):
+        input(f"{p1_name} battles...press enter")
+        if isinstance(p1_charac, Sorcerer):
+            print(p1_charac.wage_battle())
+            p1_charac.magic()
+        else:
+            print(p1_charac.wage_battle())
+
+        input(f"\n{p2_name} battles...press enter")
+        if isinstance(p2_charac, Sorcerer):
+            print(p2_charac.wage_battle())
+            p2_charac.magic()
+        else:
+            print(p2_charac.wage_battle())
+
+
+player_1 = player_1()
+p1_name = player_1[0]
+p1_charac = player_1[1]
+p1_score = 0
+curr_p1_sc = 0
+
+player_2 = player_2()
+p2_name = player_2[0]
+p2_charac = player_2[1]
+p2_score = 0
+curr_p2_sc = 0
+
+p = True
+
 
 while p:
     play = input("[P]lay, [S]how Score, or [Q]uit ")
@@ -152,36 +171,19 @@ while p:
                         curr_p1_sc += p1_score
 
         elif p1_lands == p2_lands:
-            break
-
+            battle_moves(p1_name, p1_charac, p2_name, p2_charac)
+            p1_score, p2_score = battle_score(curr_p1_sc, curr_p2_sc)
+            curr_p1_sc = p1_score
+            curr_p2_sc = p2_score
         else:
             print("Players did not land next to each other.")
 
     elif play.lower() == 's':
-        print(f"Score:  {p1_name} (Player 1) = {p1_score} vs {p2_name} (Player 2) = {p2_score}")
+        print(f"Score:  {p1_name} (Player 1) = {p1_score:.2f} vs {p2_name} (Player 2) = {p2_score:.2f}")
 
-print("Players landed in the same region. A special battle begins...")
-for _ in range(3):
-    input(f"{p1_name} battles...press enter")
-    if isinstance(p1_charac, Sorcerer):
-        print(p1_charac.wage_battle())
-        p1_charac.magic()
-    else:
-        print(p1_charac.wage_battle())
-
-    input(f"\n{p2_name} battles...press enter")
-    if isinstance(p2_charac, Sorcerer):
-        print(p2_charac.wage_battle())
-        p2_charac.magic()
-    else:
-        print(p2_charac.wage_battle())
-    p1_score, p2_score = battle_score(curr_p1_sc, curr_p2_sc)
-    curr_p1_sc = p1_score
-    curr_p2_sc = p2_score
 
 print(f"Score:  {p1_name} (Player 1) = {p1_score:.2f} vs {p2_name} (Player 2) = {p2_score:.2f}")
 
 # TODO: create function to save score at end of game.
 # TODO: modify code to read saved game and continue from there.
-# TODO: modify code so you can go back to regular game play after battle play.
-# TODO: review calulation for special battle score.
+# TODO: review and test score calulations.
