@@ -1,8 +1,17 @@
 
 falcon = 1
 demi_god = 2
-god = 4
-fly = 2
+god = 3
+
+abilities = {   'falcon': 1,
+                'demi_god':2,
+                'god':3
+            }
+
+ability = [     abilities['falcon'],
+                abilities['demi_god'],
+                abilities['god']
+        ]
 
 def escape(name):
     esc = "ZARIN"

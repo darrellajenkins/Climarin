@@ -11,6 +11,8 @@ class Monster:
         self.speak = ""
         self.power = 3
         self.tool = "Claw"
+        self.battle = ((len(self.name) * 0.091) + 1) * self.power
+        self.counter = self.battle * 0.98
 
     def move(self):
         p = random.choice(['A', 'B', 'C', 'M', 'X', 'Y', 'Z'])
@@ -18,6 +20,9 @@ class Monster:
 
     def strike(self):
         return f"{self.name} strikes with Power {self.power}!"
+
+    def wage_battle(self):
+        return f"{self.name} strikes with Power {self.battle:.2f}!"
 
 class Warrior:
     def __init__(self, name):
@@ -29,6 +34,8 @@ class Warrior:
         self.speak = ""
         self.power = 2.5
         self.tool = "Sword"
+        self.battle = ((len(self.name) * 0.091) + 1) * self.power
+        self.counter = self.battle * 0.98
 
     def move(self):
         p = random.choice(['A', 'B', 'C', 'M', 'X', 'Y', 'Z'])
@@ -36,6 +43,9 @@ class Warrior:
 
     def strike(self):
         return f"{self.name} strikes with Power {self.power}!"
+
+    def wage_battle(self):
+        return f"{self.name} strikes with Power {self.battle:.2f}!"
 
 class Sorcerer:
     def __init__(self, name):
@@ -49,6 +59,8 @@ class Sorcerer:
         self.tool = ["Staff", "Wand"]
         self.traits = {'Name':self.name, 'Mouth':self.mouth, 'strike_sound':self.strike_sound, 'Class': self.__class__.__name__,
                        'Cast':self.cast, 'Speak':self.speak, 'Power':self.power, 'Tool':self.tool}
+        self.battle = ((len(self.name) * 0.091) + 1) * self.power
+        self.counter = self.battle * 0.98
 
     def move(self):
         p = random.choice(['A', 'B', 'C', 'M', 'X', 'Y', 'Z'])
@@ -57,7 +69,7 @@ class Sorcerer:
     def magic(self):
         for i in range(3):
             print(f"\033[31m{chr(8608)}\033[39m", end=" ")
-            time.sleep(0.3)
+            time.sleep(0.2)
         print()
         for _ in range(5):
             for s in [chr(164), chr(167), chr(931), chr(1046), chr(8982)]:
@@ -66,6 +78,9 @@ class Sorcerer:
 
     def strike(self):
         return f"{self.name} casts {self.cast} at Power {self.power}!"
+
+    def wage_battle(self):
+        return f"{self.name} strikes with Power {self.battle:.2f}!"
 
 class Sage:
     def __init__(self, name):
@@ -76,6 +91,8 @@ class Sage:
         self.speak = ""
         self.power = 2.5
         self.tool = "Book"
+        self.battle = ((len(self.name) * 0.091) + 1) * self.power
+        self.counter = self.battle * 0.98
 
     def move(self):
         p = random.choice(['A', 'B', 'C', 'M', 'X', 'Y', 'Z'])
@@ -83,3 +100,6 @@ class Sage:
 
     def strike(self):
         return f"{self.name} strikes with Power {self.power}!"
+
+    def wage_battle(self):
+        return f"{self.name} strikes with Power {self.battle:.2f}!"
