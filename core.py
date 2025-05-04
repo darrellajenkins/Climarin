@@ -117,10 +117,10 @@ while p:
             p1_score, p2_score = basic_score(curr_p1_sc, curr_p2_sc)
             curr_p1_sc = p1_score
             curr_p2_sc = p2_score
-            if p1_score - p2_score > 3:
+            if p1_score - p2_score > 1:
                 enhance_2 = input(f"{p2_name} may now use an enhancer, would you like to use it? [Y]es or [N]o ")
                 if enhance_2.lower() == 'y':
-                    select_enhancer = random.choice(special.ability)
+                    select_enhancer = random.choice(list(special.abilities.keys()))
                     if select_enhancer == 'falcon':
                         print("Falcon enhancer activated")
                         p2_score += special.falcon
@@ -134,10 +134,10 @@ while p:
                         p2_score += special.god
                         curr_p2_sc += p2_score
 
-            if p2_score - p1_score > 3:
+            if p2_score - p1_score > 1:
                 enhance_1 = input(f"{p1_name} may now use an enhancer, would you like to use it? [Y]es or [N]o ")
                 if enhance_1.lower() == 'y':
-                    select_enhancer = random.choice(special.ability)
+                    select_enhancer = random.choice(list(special.abilities.keys()))
                     if select_enhancer == 'falcon':
                         print("Falcon enhancer activated")
                         p1_score += special.falcon
@@ -179,8 +179,10 @@ for _ in range(3):
     curr_p1_sc = p1_score
     curr_p2_sc = p2_score
 
-print(f"Score:  {p1_name} (Player 1) = {p1_score} vs {p2_name} (Player 2) = {p2_score}")
+print(f"Score:  {p1_name} (Player 1) = {p1_score:.2f} vs {p2_name} (Player 2) = {p2_score:.2f}")
+
 
 # TODO: create function to save score at end of game.
 # TODO: modify code to read saved game and continue from there.
 # TODO: modify code so you can go back to regular game play after battle play.
+# TODO: review calulation for special battle score.
