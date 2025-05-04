@@ -181,7 +181,6 @@ for _ in range(3):
 
 print(f"Score:  {p1_name} (Player 1) = {p1_score:.2f} vs {p2_name} (Player 2) = {p2_score:.2f}")
 
-
 # TODO: create function to save score at end of game.
 # TODO: modify code to read saved game and continue from there.
 # TODO: modify code so you can go back to regular game play after battle play.
